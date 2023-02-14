@@ -1,0 +1,2 @@
+samochód osobowy;Ford;Focus;2002;180000.0;432658976V
+samochód osobowy;Nissan;Micra;2010;80000.0;67843HJT
