@@ -1,2 +1,2 @@
-samochód osobowy;Ford;Focus;2002;180000.0;432658976V
-samochód osobowy;Nissan;Micra;2010;80000.0;67843HJT
+motocykl;Yamaha;Virago;1997;140000.0;87jkiycg
+ddd;erty;erhjk;2000;300000.0;87j765f

@@ -25,7 +25,6 @@ public class ReadWriteData {
                 vehicleQueue.offer(createVehicleRecordFromLine(vehicleLine));
             }
         }
-        new FileWriter(file, false).close();
         return vehicleQueue;
     }
 
@@ -41,4 +40,7 @@ public class ReadWriteData {
         return new Vehicle(type, brand, model, year, mileage, vin);
     }
 
+    public static void clearFile(File queueFile) throws IOException {
+        new FileWriter(queueFile, false).close();
+    }
 }

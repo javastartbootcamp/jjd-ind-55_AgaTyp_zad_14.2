@@ -12,11 +12,8 @@ public class QueueManager {
     private File queueFile = new File("src/main/resources/queue.txt");
 
     void mainLoop() throws IOException {
-        Queue<Vehicle> vehicleYesterdayQueue;
-        vehicleYesterdayQueue = ReadWriteData.readFile(queueFile);
-        if (!vehicleYesterdayQueue.isEmpty()) {
-            vehicleQueue = vehicleYesterdayQueue;
-        }
+        vehicleQueue = ReadWriteData.readFile(queueFile);
+        ReadWriteData.clearFile(queueFile);
 
         Option option;
         do {
@@ -26,13 +23,7 @@ public class QueueManager {
             sc.nextLine();
             switch (option) {
                 case ADD:
-                    Vehicle vehicle;
-                    do {
-                        vehicle = readAndAddVehicle();
-                    } while (vehicle == null);
-
-                    vehicleQueue.offer(vehicle);
-                    System.out.println("Pojazd dodany do kolejki");
+                    addVehicle();
                     break;
                 case TAKE:
                     takeVehicle();
@@ -51,6 +42,16 @@ public class QueueManager {
             System.out.printf("Liczba pojazdów do sprawdzenia na jutro: %d\n", vehicleQueue.size());
             ReadWriteData.saveQueue(vehicleQueue, queueFile);
         }
+    }
+
+    private void addVehicle() {
+        Vehicle vehicle;
+        do {
+            vehicle = readAndAddVehicle();
+        } while (vehicle == null);
+
+        vehicleQueue.offer(vehicle);
+        System.out.println("Pojazd dodany do kolejki");
     }
 
     private Vehicle readAndAddVehicle() {
